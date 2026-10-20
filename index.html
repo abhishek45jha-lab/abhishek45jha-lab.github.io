@@ -4,121 +4,400 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abhishek Jha | Cricket & Code</title>
+<title>Abhishek Jha | Cricket Portfolio</title>
+
 <style>
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;background:#071426;color:white;font-family:Arial,sans-serif}
-header{padding:18px 5%;display:flex;justify-content:space-between;
-align-items:center;gap:15px;flex-wrap:wrap;background:#081629}
-.logo{font-weight:bold;color:#ffc36a;font-size:20px}
-nav{display:flex;gap:10px;flex-wrap:wrap}
-a{color:inherit;text-decoration:none}
-nav a,.btn{padding:11px 15px;border-radius:9px;background:#192c45;
-border:1px solid #48617d;display:inline-block}
-nav a:hover,.btn:hover{background:#e97b36;color:white}
-.hero{min-height:75vh;display:flex;align-items:center;justify-content:center;
-text-align:center;padding:55px 20px;
-background:linear-gradient(#06142666,#061426d9),
-url('https://raw.githubusercontent.com/abhishek45jha-lab/abhishek45jha-lab/main/cricket-world.png') center/cover}
-.hero-content{max-width:760px;background:#071426b8;padding:30px;border-radius:18px}
-h1{font-size:clamp(35px,7vw,65px);margin:10px}
-h1 span{color:#ffb76b}
-.hero p{font-size:18px;line-height:1.7}
-.btn{margin:8px;background:#1468b4;border:0}
-.green{background:#16854c}
-section{padding:65px 8%;max-width:1100px;margin:auto}
-h2{color:#ffc36a;font-size:30px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{padding:22px;background:#10223a;border:1px solid #29435f;
-border-radius:14px;line-height:1.7}
-.card h3{color:#ffbf76}
-.tag{display:inline-block;background:#203b58;padding:7px 11px;
-border-radius:7px;margin:5px}
-footer{text-align:center;padding:30px;background:#081629;color:#b9c8d9}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #071326;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: 1536px;
+  margin: auto;
+  overflow: hidden;
+  line-height: 0;
+  background: #071326;
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 69% 49%,
+    #ffb34755,
+    transparent 35%
+  );
+  animation: sunsetGlow 3s ease-in-out infinite alternate;
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ffd58b;
+  box-shadow: 0 0 12px #ff9f3d;
+  animation: floatUp var(--duration) linear infinite;
+  animation-delay: var(--delay);
+}
+
+.leaf {
+  position: absolute;
+  width: 10px;
+  height: 6px;
+  background: #ffad49;
+  border-radius: 100% 0 100% 0;
+  animation: fall var(--duration) linear infinite;
+  animation-delay: var(--delay);
+}
+
+.hotspot {
+  position: absolute;
+  z-index: 5;
+  display: block;
+  border-radius: 8px;
+  background: transparent;
+  text-decoration: none;
+  transition: .25s ease;
+}
+
+.hotspot:hover,
+.hotspot:focus-visible {
+  background: #ffffff20;
+  outline: 2px solid #ffca78;
+  box-shadow: 0 0 22px #ffad49;
+  transform: translateY(-2px);
+}
+
+/* Clickable areas over the buttons in your artwork */
+.home {
+  left: 30%;
+  top: 11.5%;
+  width: 10%;
+  height: 8%;
+}
+
+.about {
+  left: 40.2%;
+  top: 11.5%;
+  width: 10%;
+  height: 8%;
+}
+
+.projects {
+  left: 50.2%;
+  top: 11.5%;
+  width: 12%;
+  height: 8%;
+}
+
+.skills {
+  left: 62.5%;
+  top: 11.5%;
+  width: 11%;
+  height: 8%;
+}
+
+.achievements {
+  left: 73.5%;
+  top: 11.5%;
+  width: 15%;
+  height: 8%;
+}
+
+.contact {
+  left: 88.7%;
+  top: 11.5%;
+  width: 10.5%;
+  height: 8%;
+}
+
+.explore {
+  left: 28%;
+  top: 88%;
+  width: 22%;
+  height: 10%;
+}
+
+.getintouch {
+  left: 51%;
+  top: 88%;
+  width: 22%;
+  height: 10%;
+}
+
+.content {
+  max-width: 1000px;
+  padding: 24px;
+  margin: auto;
+}
+
+section {
+  margin: 20px 0;
+  padding: 28px;
+  background: #10233d;
+  border: 1px solid #284866;
+  border-radius: 16px;
+  scroll-margin-top: 20px;
+  line-height: 1.7;
+}
+
+h2 {
+  color: #8bd9ff;
+}
+
+.card {
+  background: #172d49;
+  border: 1px solid #315274;
+  padding: 18px;
+  margin: 12px 0;
+  border-radius: 12px;
+}
+
+.button {
+  display: inline-block;
+  padding: 11px 16px;
+  border-radius: 8px;
+  background: #ffbd62;
+  color: #071326;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back {
+  color: #a5e1ff;
+}
+
+footer {
+  padding: 24px;
+  text-align: center;
+  color: #9fb2c8;
+}
+
+@keyframes sunsetGlow {
+  from { opacity: .3; }
+  to { opacity: 1; }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  20% { opacity: .9; }
+  100% {
+    transform: translate(35px, -120px);
+    opacity: 0;
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translate(0, -20px) rotate(0);
+    opacity: 0;
+  }
+  15% { opacity: .9; }
+  100% {
+    transform: translate(80px, 700px) rotate(400deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    padding: 12px;
+  }
+
+  section {
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
 </style>
 </head>
+
 <body>
 
-<header>
-  <div class="logo">🏏 ABHISHEK.JHA</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<main>
+<!-- YOUR ORIGINAL CRICKET ARTWORK -->
 <div class="hero" id="home">
-  <div class="hero-content">
-    <p>🏟️ WELCOME TO MY WORLD</p>
-    <h1>Cricket <span>meets</span> Code.</h1>
-    <p>
-      Hey, I'm Abhishek Jha — a Data Science student,
-      cricket enthusiast and aspiring developer.
-      Every line of code is another run on the scoreboard.
-    </p>
-    <a class="btn" href="#projects">🚀 Explore My World</a>
-    <a class="btn green" href="#contact">✉ Get In Touch</a>
-  </div>
+
+  <img
+    src="cricket-world.png"
+    alt="Abhishek Jha's anime cricket portfolio">
+
+  <div class="particles" id="particles"
+       aria-hidden="true"></div>
+
+  <!-- Top navigation: transparent clickable overlays -->
+  <a class="hotspot home" href="#home"
+     aria-label="Home"></a>
+
+  <a class="hotspot about" href="#about"
+     aria-label="About"></a>
+
+  <a class="hotspot projects" href="#projects"
+     aria-label="Projects"></a>
+
+  <a class="hotspot skills" href="#skills"
+     aria-label="Skills"></a>
+
+  <a class="hotspot achievements" href="#achievements"
+     aria-label="Achievements"></a>
+
+  <a class="hotspot contact" href="#contact"
+     aria-label="Contact"></a>
+
+  <!-- Bottom buttons -->
+  <a class="hotspot explore" href="#projects"
+     aria-label="Explore My World"></a>
+
+  <a class="hotspot getintouch" href="#contact"
+     aria-label="Get In Touch"></a>
+
 </div>
 
-<section id="about">
-  <h2>👋 About Me</h2>
-  <div class="card">
-    <p>🎓 B.Tech in Data Science — SRM NCR</p>
-    <p>🏏 Cricket lover who enjoys the game on and off the field.</p>
-    <p>💻 Learning programming, problem solving and AI.</p>
-    <p>🔥 Building projects and turning ideas into prototypes.</p>
-  </div>
-</section>
+<main class="content">
 
-<section id="projects">
-  <h2>🎒 My Projects</h2>
-  <div class="grid">
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi, I'm Abhishek Jha, a B.Tech Data Science student
+      at SRM NCR. I enjoy coding, cricket, AI and building
+      useful technology projects.
+    </p>
+    <a class="back" href="#home">↑ Back to Home</a>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+
     <div class="card">
-      <h3>🔥 Ageni</h3>
-      <p>AI-based industrial fire detection and risk intelligence.</p>
-      <a class="btn" href="https://github.com/abhishek45jha-lab"
-      target="_blank" rel="noopener">Explore GitHub ↗</a>
+      <h3>Ageni — Industrial Fire Intelligence</h3>
+      <p>
+        An AI-focused project concept for industrial fire
+        detection, risk intelligence and incident analysis.
+      </p>
     </div>
+
     <div class="card">
-      <h3>🤝 Aid Link</h3>
-      <p>An emergency assistance concept connecting people with help.</p>
-      <a class="btn" href="https://aidlink404.netlify.app/"
-      target="_blank" rel="noopener">View Prototype ↗</a>
+      <h3>Aid Link</h3>
+      <p>
+        A prototype concept connecting people with emergency
+        assistance and nearby volunteers.
+      </p>
+      <a class="button"
+         href="https://aidlink404.netlify.app/"
+         target="_blank" rel="noopener">
+        Explore Aid Link ↗
+      </a>
     </div>
-  </div>
-</section>
 
-<section id="skills">
-  <h2>⚔️ My Skills Inventory</h2>
-  <div class="card">
-    <span class="tag">🐍 Python</span>
-    <span class="tag">⚙️ C++</span>
-    <span class="tag">🧠 Data Science</span>
-    <span class="tag">🌐 HTML & CSS</span>
-    <span class="tag">🧩 DSA — Learning</span>
-    <span class="tag">🏏 Cricket</span>
-  </div>
-</section>
+    <a class="back" href="#home">↑ Back to Home</a>
+  </section>
 
-<section id="contact">
-  <h2>📬 Connect With Me</h2>
-  <div class="card">
-    <p>Have an idea, project or opportunity? Let's connect!</p>
-    <a class="btn" href="https://github.com/abhishek45jha-lab"
-    target="_blank" rel="noopener">GitHub Profile ↗</a>
-    <a class="btn green" href="mailto:">Send Email</a>
-  </div>
-</section>
+  <section id="skills">
+    <h2>Skills</h2>
+    <p>
+      C++ · Python · Data Science · HTML · CSS · AI/ML · DSA
+    </p>
+    <p>
+      I am learning by building prototypes and improving
+      my development skills step by step.
+    </p>
+    <a class="back" href="#home">↑ Back to Home</a>
+  </section>
+
+  <section id="achievements">
+    <h2>Achievements & Activities</h2>
+    <p>
+      Hackathon participation, project prototyping and
+      continuous learning are part of my journey.
+    </p>
+    <a class="back" href="#home">↑ Back to Home</a>
+  </section>
+
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <p>
+      Explore my code, projects and development journey
+      on GitHub.
+    </p>
+    <a class="button"
+       href="https://github.com/abhishek45jha-lab"
+       target="_blank" rel="noopener">
+      Visit My GitHub ↗
+    </a>
+    <p><a class="back" href="#home">↑ Back to Home</a></p>
+  </section>
+
 </main>
 
 <footer>
-  🏏 Built with passion, powered by curiosity.
-  <p>© 2026 Abhishek Jha</p>
+  Made with ❤️ by Abhishek Jha
 </footer>
+
+<script>
+/* Create drifting leaves and glowing particles */
+const layer = document.getElementById("particles");
+
+for (let i = 0; i < 32; i++) {
+  const item = document.createElement("span");
+
+  item.className = i % 3 === 0
+    ? "leaf"
+    : "particle";
+
+  item.style.left = Math.random() * 100 + "%";
+  item.style.top = Math.random() * 100 + "%";
+  item.style.setProperty(
+    "--duration",
+    (7 + Math.random() * 12) + "s"
+  );
+  item.style.setProperty(
+    "--delay",
+    (-Math.random() * 15) + "s"
+  );
+
+  layer.appendChild(item);
+}
+</script>
+
 </body>
 </html>
